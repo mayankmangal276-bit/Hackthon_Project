@@ -1,0 +1,1 @@
+import {HeartHandshake} from 'lucide-react';export default function Logo(){return <div className="flex items-center gap-2 font-black text-lg"><span className="grid h-9 w-9 place-items-center rounded-xl bg-leaf text-white"><HeartHandshake size={19}/></span>FoodRescue <span className="text-leaf">AI</span></div>}
