@@ -1,28 +1,78 @@
 # FoodRescue AI — Don't Waste Food. Rescue It.
 
-Surplus-to-Shelter is a full-stack hackathon MVP connecting food donors, shelters and volunteer drivers through smart matching and real-time rescue status.
+FoodRescue AI is a full-stack food rescue platform that connects food donors with nearby shelters and volunteer drivers to rescue surplus edible food before it expires.
 
-## Stack
-- React + Vite + Tailwind CSS + React Router + Framer Motion
-- Node.js + Express + MongoDB/Mongoose + JWT
-- Leaflet/OpenStreetMap + Recharts
+The platform demonstrates an end-to-end rescue lifecycle:
 
-## Quick start
-1. `cd project`
-2. Copy `backend/.env.example` to `backend/.env`.
-3. Set `MONGO_URI` if MongoDB is available. The backend also has an in-memory demo fallback so the UI can be demonstrated without MongoDB.
-4. `npm run install:all`
-5. `npm run dev`
-6. Open the Vite URL shown in the terminal.
+**Food Donor → Food Donation → Smart Matching → Shelter Selection → Driver Assignment → Pickup → Delivery → Impact Tracking**
 
-## Demo accounts
-Use the Demo buttons on `/login`: Donor, Shelter, Driver, Admin. Demo mode is designed for the complete Post → Match → Assign → Pickup → Deliver → Impact story.
+---
 
-## Core matching
-Score = distance 35% + capacity 25% + food compatibility 20% + urgency 15% + driver availability 5%, normalized to 0–100.
+## Problem Statement
 
-## Environment
-Backend: `PORT`, `MONGO_URI`, `JWT_SECRET`, `CLIENT_URL`, optional `OPENAI_API_KEY`.
+Restaurants, food businesses and other donors often have surplus edible food that may go to waste because suitable shelters and transportation are not identified quickly enough.
 
-## Project structure
-`frontend/` contains the responsive product UI. `backend/` contains REST APIs, models, authentication, matching and seed/demo logic.
+FoodRescue AI addresses this coordination problem by providing a real-time platform for:
+
+- Posting surplus food
+- Finding suitable shelters
+- Assigning available drivers
+- Tracking rescue status
+- Verifying driver arrival using GPS
+- Measuring food rescue impact
+
+---
+
+## Proposed Solution
+
+FoodRescue AI automatically connects the three main participants:
+
+### Food Donor
+Posts surplus food with:
+
+- Food type
+- Category
+- Quantity
+- Location
+- Expiry time
+- Description
+
+### Shelter / NGO
+Provides:
+
+- Available capacity
+- Food requirements
+- Accepted food types
+- Location
+
+### Volunteer Driver
+Receives rescue assignments and progresses through the pickup and delivery workflow.
+
+---
+
+## End-to-End Workflow
+
+```text
+Donor
+  ↓
+Post Surplus Food
+  ↓
+AI Food Information Extraction
+  ↓
+Smart Matching Engine
+  ↓
+Best Suitable Shelter
+  ↓
+Driver Assignment
+  ↓
+Driver Accepts Rescue
+  ↓
+GPS Pickup Verification
+  ↓
+Food Picked Up
+  ↓
+GPS Shelter Arrival Verification
+  ↓
+Food Delivered
+  ↓
+Impact Dashboard Updated
